@@ -14,5 +14,20 @@
 		<url-pattern>/TestController</url-pattern>
 
 	</servlet-mapping>
+	
+	
+	<!-- servlet and it's mapping on  -->
+	 
+	<servlet>
+		<servlet-name>AddempController</servlet-name>
+		<servlet-class>AddempController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AddempController</servlet-name>
+		<url-pattern>/AddempController</url-pattern>
+
+	</servlet-mapping>
+	
 
 </web-app>

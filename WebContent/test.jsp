@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -39,7 +42,7 @@ a:active {
 }
 </style>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Home</title>
 </head>
 <body style='background-color: lightblue'>
 	<h1 style='color: white'>This is going to be my first MVC app and
@@ -66,6 +69,19 @@ a:active {
 		
 	</table>
 -->
+	<%
+		//  request.getAttribute("elist");
+
+		;
+
+		out.println(request.getAttribute("elist"));
+	%>
+
+	<%!int lengt(String s) {
+
+		return s.length();
+	}%>
+
 	<table>
 		<tr>
 			<th>Id</th>
@@ -74,14 +90,21 @@ a:active {
 			<th>Dept</th>
 			<th>Modify</th>
 		</tr>
-		<c:forEach items="${elist}" var="x">
+		<c:forEach items="${elist}" var="x" varStatus="status">
 			<tr>
 				<td>${x.getId()}</td>
 				<td>${x.getName()}</td>
 				<td>${x.getDob()}</td>
 				<td>${x.getDept()}</td>
-				<td><a href="#">Edit</a>|<a href="#">Delete</a></td>
+
+				<td><a href="Edit.jsp?count1=${status.count}">Edit</a>|<a
+					href="#">Delete</a></td>
 			</tr>
 		</c:forEach>
+	</table>
+	<br>
+	<button>
+		<a href="AddEmployee.jsp">Add Employee</a>
+	</button>
 </body>
 </html>

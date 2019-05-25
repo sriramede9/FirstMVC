@@ -45,14 +45,26 @@ public class TestController extends HttpServlet {
 		// test jdbc
 
 		TestModel tModel = new TestModel();
-		List<Employee> emplist = tModel.setupConnection();
-		
+
+		tModel.setupConnection();
+
+		List<Employee> emplist = tModel.getEmployeListTMOdel();
+
+		//System.out.println("this is our emp list" + emplist);
+
 		request.setAttribute("elist", emplist);
 
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/test.jsp");
+		
+	
 
 		requestDispatcher.forward(request, response);
-
+		
+		String string =request.getParameter("1");
+		//int w=Integer.parseInt(string);
+			
+			System.out.println("tag clicked id is"+string);
+			
 	}
 
 	/**
@@ -65,4 +77,4 @@ public class TestController extends HttpServlet {
 		doGet(request, response);
 	}
 
-}
+}	
